@@ -4,10 +4,10 @@ psycopg2>=2.9,<3.0  # For PostgreSQL (used by Render)
 django-crispy-forms>=1.11.0
 python-dotenv>=0.19.0  # For managing environment variables
 pillow>=8.3.0  # For handling images (if used)
-spacy>=3.1.0  # For NLP processing
 PyPDF2>=1.26.0  # For handling PDF parsing
 python-docx>=0.8.11  # For handling DOCX parsing
 scikit-learn>=0.24.2  # For machine learning (used in resume scoring)
 nltk>=3.6.3  # If using NLTK for text processing
 whitenoise==5.3.0
+spacy>=3.1.0  # For NLP processing
 en-core-web-sm==3.0.0
