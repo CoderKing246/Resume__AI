@@ -128,7 +128,7 @@ def calculate_resume_score(text):
     vectorizer = TfidfVectorizer()
     corpus = [" ".join(JOB_KEYWORDS), text]  # Compare job keywords with resume text
     tfidf_matrix = vectorizer.fit_transform(corpus)
-    similarity = (tfidf_matrix * tfidf_matrix.T).A[0][1]  # Cosine similarity
+    similarity = (tfidf_matrix * tfidf_matrix.T).toarray()[0][1]  # Cosine similarity
     # print(similarity)
     return round(similarity * 100, 2)  # Convert to percentage
 
