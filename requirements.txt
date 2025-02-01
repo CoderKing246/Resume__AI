@@ -9,3 +9,4 @@ PyPDF2>=1.26.0  # For handling PDF parsing
 python-docx>=0.8.11  # For handling DOCX parsing
 scikit-learn>=0.24.2  # For machine learning (used in resume scoring)
 nltk>=3.6.3  # If using NLTK for text processing
+whitenoise==5.3.0
