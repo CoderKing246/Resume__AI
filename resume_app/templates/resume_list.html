@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}My Resumes{% endblock %}
+{% block content %}
+
+<div class="container mt-4">
+    <h2>My Resumes</h2>
+
+    {% if page_obj %}
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Resume</th>
+                    <th>Uploaded At</th>
+                    <th>Score</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for resume in page_obj %}
+                <tr>
+                    <td>{{ resume.file.name }}</td>
+                    <td>{{ resume.uploaded_at|date:"d M Y, H:i" }}</td>
+                    <td><span class="badge bg-info">{{ resume.score|floatformat:2 }}</span></td>
+                    <td>
+                        <a href="{% url 'delete_resume' resume.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Pagination Controls -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                {% endif %}
+
+                <li class="page-item active"><span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span></li>
+
+                {% if page_obj.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+
+    {% else %}
+        <p class="text-muted">You haven't uploaded any resumes yet.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
