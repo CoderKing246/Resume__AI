@@ -10,4 +10,4 @@ scikit-learn>=0.24.2  # For machine learning (used in resume scoring)
 nltk>=3.6.3  # If using NLTK for text processing
 whitenoise==5.3.0
 spacy>=3.1.0  # For NLP processing
-en-core-web-sm==3.0.0
+
